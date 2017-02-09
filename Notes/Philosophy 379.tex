@@ -1,0 +1,538 @@
+\documentclass[11pt]{article}
+
+%%%%%%%%%%%%%% LATEX SAMPLE FILE %%%%%%%%%%%%%%%%
+% A line which starts with a % sign
+% is called a COMMENT. It is IGNORED
+% by the LaTeX processor.
+
+% Include math
+\usepackage{amsmath,amsthm,amssymb}
+% Include links
+\usepackage{hyperref}
+
+
+%%%%%%%%%%%%%  THEOREMS  %%%%%%%%%%%%%%%%%
+% Let's define some theorem environments
+% To use later in the paper
+\theoremstyle{plain} % other options: definition, remark
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+% By including [theorem], the lemma follows the numbering of theorem
+% e.g. Thm 1, Lemma 2, Thm 3, Thm 4, \dots
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition} % the star prevents numbering
+
+\theoremstyle{example}
+\newtheorem*{example}{Example}
+% Remarks
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+
+
+%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
+% LaTeX has big default margins
+% The following sets them to 1in
+\usepackage[margin=1.5in]{geometry}
+
+% The following sets up some headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Philosophy Notes} % Left Header
+\rhead{\thepage} % Right Header
+\cfoot{} % Center Foot (empty)
+
+
+
+
+
+
+%%%%%%%%%%%%% SHORTCUTS %%%%%%%%%%%%%%%%%%%%
+% You can define your own shortcuts too.
+% Examples of custom commands
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+
+% Document content begins here
+\begin{document}
+
+% Set up a title
+\title{Philosophy 379}
+\author{David Ng}
+\date{Winter 2016}
+\maketitle
+
+% This line makes a ToC
+\tableofcontents
+
+% This line starts a new page
+\eject
+
+%%%%%%%%%%%%% January 11 %%%%%%%%%%%%%%%%%%%%
+
+\section{January 26, 2016}
+\subsection{Functions}
+
+
+\begin{definition}
+	A function $f: X \mapsto Y$ denotes a mapping from the domain $X$ to the co-domain $Y$.
+\end{definition}
+
+\begin{definition}
+	The range of $f:X \mapsto Y$ is denoted $ran(f) = \{y \in Y: \exists x \in X, f(x) = y\}$
+\end{definition}
+
+\begin{remark}
+In other words, when the $ran(f) = Y$, then the function is surjective.
+\end{remark}
+
+\begin{theorem}
+A function $f$ is bijective if and only if there exists a unique function $g: Y \mapsto X$ such that $(g(f(x)) = f(g(x)) = I(x)$
+\end{theorem}
+
+\begin{proof}
+Suppose $f: X \mapsto Y$ is a bijection. We need to show that there exists a such a function $g$.
+\\
+\\Let $x \in X$, and $y \in Y$. We define $g(y) = x \iff f(x) = y$. This is well defined since $\forall y \in Y$, there is exactly one $x \in X$ such that $f(x) = y$ because $f$ is bijective.
+\\
+\\We now show that $\forall x \in X$, $g(f(x)) = x$. Since $g$ is a function with an inverse which is a mapping, then $g$ is a bijection.
+
+\end{proof}
+
+\begin{definition}
+A partial function $f: X \mapsto Y$ is a mapping from some elements of $X$ to a unique element of $Y$. $f(x)$ is undefined $(f(x) \uparrow)$ if it is mapped to no $y \in Y$.
+$f(x)$ is defined $(f(x)) \downarrow)$ if it is mapped to a unique $y \in Y$. 
+
+\end{definition}
+\begin{definition}
+The domain of a function is denoted $dom(f) = \{x \in X, f(x) \downarrow\}$
+\end{definition}
+
+\subsection{Infinite Sets}
+
+\begin{example}
+The set of natural numbers, integers, rational numbers, irrational numbers, real numbers, and complex numbers are all instances of infinite sets.
+\end{example}
+
+\begin{definition}
+Two sets $X, Y$ have the same size $\iff$ there is a bijective function $f:X \mapsto Y$.
+\end{definition}
+
+\begin{remark}
+This is an equivalence relation.
+\end{remark}
+
+\begin{example}
+The set $\mathbb N$ and $2\mathbb N$ are of the same size, since $f: \mathbb N \mapsto 2\mathbb N$ where $f(n) = 2n$ is bijective.
+\end{example}
+
+\begin{definition}
+An enumeration of a set $X$ is a (possibly infinite) list of all the elements of $X$.
+\end{definition}
+
+\begin{example}
+For instance, an enumeration of the natural numbers would be: $0,1,2,3,4...$
+\end{example}
+
+\begin{example}
+Enumerate the set of integers as: $0,-1,1,-2,2...$ Then, we map all the positive integers to twice their value, and map the negative integers to their positive counterparts. This shows that there is a bijective function from the set of integers to the set of whole numbers.
+\end{example}
+
+If set $X$ has an enumeration, it has an enumeration in which every $x \in X$ appears exactly once (By replacing multiples by gaps). $f:N \mapsto X$.
+
+
+
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+
+\section{January 28, 2016}
+\subsection{Enumeration}
+
+\begin{remark}
+We note that 2$\mathbb N$ is a proper subset of $\mathbb N$, but they are of the same size.
+\end{remark}
+
+If $X$ has an enumeration, and $Y$ is a subset of $X$, then Y also has an enumeration which can be achieved by deleting all the elements of $X$ that are not in $Y$.
+
+\begin{example}
+A possible enumeration of the set $2\mathbb N$: $0,2,2,4,4,6,6,8,8...$. Let $h$ be a function which maps the set $\mathbb N \mapsto 2\mathbb N$.
+\end{example}
+
+\begin{lemma}
+If a set $X$ is an infinite set that has an enumeration $h: \mathbb N \mapsto \mathbb X$, then the function $h$ is bijective.
+\end{lemma}
+
+\begin{example}
+To demonstrate, we show that the set $2 \mathbb N$ and $\mathbb N$ are of the same size.
+$$f: 2 \mathbb N \mapsto \mathbb N, \quad f(n) = \frac{n}{2}$$
+\[  g: \mathbb N \mapsto \mathbb Z, \quad g(n) =\begin{cases}
+    -\frac{n}{2}, \quad \text{if n is even} \\
+   \frac{n+1}{2},\quad \text{if n is odd}\\
+  \end{cases}
+\]
+
+\end{example}
+
+\begin{remark}
+If a set $X$ is finite, then it has an enumeration $X = {a_0, a_1, a_2...a_n}$, and there is a bijective function $f = \{0,1,2...n\} \mapsto X$, such that $f(k)= a_k$.
+\end{remark}
+
+\begin{remark}
+If $X$ is an infinite set that has an enumeration, then $h': \mathbb N \mapsto X$ is bijective, so $X$ is of the same size as $N$.
+If $X$ is finite, then for some $k \in \mathbb N$ the set of $k$ numbers is the same size as $X$.
+If $X = \emptyset$, then the size of $X$ is equal to the size of $\emptyset$. 
+\end{remark}
+
+\begin{example}
+$\mathbb N^2 = \{<n,m>:\quad n,m\in \mathbb N\}$. Enumerate by systematically hitting all possible pairs by going diagonally.
+\end{example}
+
+\begin{example}
+rationals. top is integer, bottom positive integer. $\mathbb N \to \mathbb Z$, $\mathbb N \to \mathbb Z^+$.  $\mathbb N^2 \to \mathbb N$.
+list in 2d space:
+
+0,1	0,2...
+1,1, 1,2, 1,3...
+-1,1, -1,2  -1,3...
+2,1	2,2	...
+
+This enumeration is gappy. But that is fine, since list has every element on it. to make bijective, simply skip relating  repeated elements.
+\end{example}
+
+uncountable.
+let B = {0,1}, B^omega  is infinite sequence of 0 and 1, B^* is finite sequence of 0 and 1.
+
+\begin{theorem}
+B^\omega is not countable. In other words, there is no bijective function N to B^\omega, so it therefore has no enumeration.
+\end{theorem}
+
+\begin{proof}
+By Reductio Ad Absurdum.
+
+Suppose that there is a bijective function. A contradiction arises if we can construct a sequence of 0 and 1 that is not on its enumerated list. 
+
+Let S_n be nth element in enumerated sequence.
+Let S bar _n be 0 if nth element of S is 1, 0 otherwise
+\end{proof}
+
+\section{February 2, 2016}
+\subsection{Uncountable Sets}
+
+\begin{definition}
+A set X is countable iff it has an enumeration, and there is a surjective function from $f: \mathbb N \to \mathbb X$.
+\end{definition}
+
+
+\begin{definition}
+A set X is uncountable iff it is not countable.
+\end{definition}
+
+
+\begin{Theorem}
+
+$\mathbb B^\omega$ is uncountable, where $\mathbb B = \{0,1\}$ and $X^\omega$ is all the infinite sequences of elements of $\mathbb X$.
+\end{Theorem}
+
+\begin{proof}
+Use Indirect Proof, Cantor's Diagonal Argument.
+Suppose that there was an enumeration for $\mathbb B^\omega$. Show that we can make a new infinite sequence by flipping the value at every next term. 
+\end{proof}
+
+\subsection{Method by Reduction}
+
+\begin{Proposition}
+The set of all functions $f: powerset \mathbb N \to \mathbb B\omega$ is uncountable. 
+\end{Proposition}
+
+\begin{proof}
+We can show that a set X is uncountable by showing that there is a function f:x \to Y which is surjective, when we know that Y is an uncountable set. Every sequence of N numbers, corresponds to the power set of the set of N. Thus, we let a certain sequence map to infinite sequence of 0 and 1 by letting it be 1 in a certain place when that number is in the certain set in the power set. 
+\end{proof}
+
+\subsection{First Order Logic}
+\begin{definition}
+Syntax refers to a particular vocabulary of the language. The logical symbols, (upside down t) is Falsity, -- is NOT, ^ is AND, v is OR, --> is IF, THEN, \forall is FOR ALL, \exists is EXISTS, and = is Identity. There are also variables, n-place predicate variables, constant symbols, and n-place function symbols.
+\end{definition}
+
+\section{February 4, 2016}
+Non logical vocabulary is made up of constants $c_1, c_2, c_3...$, variables $v_1, v_2, v_3...$, functions $f^n_1, f^n_2, f^n_3... \forall n \in \mathbb Z^+$, and predicate $A^n_1, A^n_2, A^n_3... \forall n \in \mathbb Z^+$.
+
+
+\begin{example}
+In the language of set theory, there is only one 2-place predicate symbol $A^2_1: \in$.
+\end{example}
+
+
+\begin{example}
+In the language of arithmetic, there is $c_0 = 0$, $c_1 = 1$, $f^1_0 = ' $(successor), $f^2_0 = +$, $f^2_1 = *$, $A^2_0 = <$.\end{example}
+
+
+\begin{example}
+In the language of partial orders, there is $A^2_0 = \leq$.
+\end{example}
+
+\begin{definition}
+A term of a language $\mathcal{L}$ is any expression constructed according to the following rules
+	\begin{enumerate}
+		\item Variables are terms.
+		\item Every Constant symbol in $\mathcal{L}$ is a term.
+		\item Whenever $f^n$ is a function symbol of \mathcal{L} and $t_1, t_2,...t_n$ are terms, then $f^n(t_1,t_2,...t_n)$ is a term.
+		\item Nothing else counts as a term.
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+In the Language of Arithmetic, $t'$ denotes $f^1_0(t)$ and $(t_1+t_2)$ denotes $f^2_0(t_1, t_2)$. These simultaneously represent the successor function and the addition function. $f^2_1(t_1, t_2)$ is denoted by $(t_1 \times t_2)$.
+\end{remark}
+
+\subsection{Semantics}
+
+A structure $\mathcal{m}$ consists of:
+\begin{enumerate}
+	\item Domain $|\mathcal{m}| =/= \emptyset$.
+	\item Interpretations for all constant symbols in the language $c^\mathcal{m} \in |\mathcal{m}|$.
+	\item Interpretations for all n-place function symbols $f^n \in \mathcal{L}$ where $(f^n)^\mathcal{m}: |\mathcal{m}|^n \to |\mathcal{m}|$.
+\end{enumerate}
+
+\begin{definition}
+A value of a variable free term of $\mathcal{L}$ in $\mathcal{m}$ is defined as follows:
+	\begin{itemize}
+		\item If $t$ is a constant, $t=c$, then $val^\mathcal{m}(t) = c^\mathcal{m}$.
+		\item If $t$ is a term of the form $f^n(t_1, t_2, ...t_n), then $val^\mathcal{m}(t) = (f^n)^\mathcal{m}$
+	\end{itemize}
+	
+Note also that any constant is a term (any variables is a term). If $f^n$ is an n-place function symbol and $t_1, t_2, ...t_n$ are terms, then $f^n(t_1, t_2, ...t_n) is a term.
+\end{definition}
+
+\begin{example}
+A structure $\mathcal{n}$ for $\mathcal{L}_A$. The domain of $| \mathcal{n} | = \mathbb{N}$. $c^\mathcal{n}_0 = 0$,  $c^\mathcal{n}_1 = 1$,  $(f^1_0)^\mathcal{n}:  \mathbb N \to \mathbb Nj$ defined as $(f^1_0)^\mathcal{n}(n) = n+1$, where $n+1 \in \mathbb N$.
+\end{example}
+
+
+\section{February 9, 2016}
+\subsection{First Order Logic}
+
+Formulas from $\mathcal L$ are defined inductively as follows:
+
+\begin{enumerate}
+
+	\item upside down t is a formula.
+	\item If $P^n$ is an n-Place predicate symbol of $\mathcal L$, and $t_1, t_2, t_3...t_n$ are terms of $\mathcal L $, then $P^n(t_1, t_2, t_3,...t_n)$ is a formula
+	\item If A is a formula, then -A is a formula.
+	\item If A, B are formulas, then so are A or B, A and B, and if A then B. 
+	\item If A, is a formula, and x is a variable, then For all x A, ,There exists x such that A are both formulas.
+\end{enumerate}
+
+\begin{example}
+	In the language of arithmetic for instance, then the following are formulas.
+	\begin{itemize}
+		\item falsity
+		\item $A^2_0(c_0, f^1_0(c_0))$
+		\item $=(c_0, f^1_0(c_0))$
+		\item $-=(c_0, f^1_0(c_0))$
+		\item $--=(c_0, f^1_0(c_0))$  
+		\item  $\left(A^2_0(c_0, f^1_0(c_0)) \and =(c_0, f^1_0(c_0))\right)$
+		\item $\exists v_1, A^2_0(v_0, v_1)$
+		\item $\forall v_0 (0 < v_0)$
+
+	\end{itemize}
+\end{example}
+
+\begin{definition}
+Given a structure $\mathcal m$, a variable assignment is a function which maps any variable to $\| \mathcal m \|$.
+\end{defintion}
+
+
+
+\begin{definition}
+The value of terms relative to $\mathcal m:s$, where $s: Var \mapsto \|\mathcal m \|$.
+
+\end{defintion}
+
+
+\begin{definition}
+Satisfaction of formulas in a structure $\mathcal m$ relative to s. $m, s "models or satisfies" A$.
+\end{defintion}
+
+\begin{enumerate}
+	\item m, s does not satisfy falsity
+	\item If $A = P(t_1, ...t_n)$, then $m, s satisfies A \iff <Val^m_s(t_1),...Val^m_s(t_n)> \in P^m$.
+	\item If $A = -B$, then $m,s satisfy A \iff m,s do nto satisfy B$.
+	\item If $A = B \and C$, then $m,s satisfies A \iff m,s satisfies B and m,s satisfies C$.
+	
+	\item If $A = B \or C$, then $m,s satisfies A \iff m,s satisfies B or m,s satisfies C$.
+	
+	\item If $A = B --> C$, then $m,s satisfies A \iff m,s not satisfies B or m,s satisfies C$.
+	
+	\item If $A = \forall x B$, then $m,s satisfies A \iff m, s' satisfies B for all variable assignments s'$. That is, s'(y) = s(y) for all variables y other than x. s' ~_x s, where s' is an x variant of s.
+	
+	\item If $A = \exists x B$, then $m,s satisfies A \iff m, s' satisfies B for at least one variable assignments s'$. s' is an x variant of s.
+\end{enumerate}
+
+
+\section{February 11, 2016}
+\subsection{Free Variable Occurrences}
+
+\begin{definition}
+The scope of the occurrences of $\forall x, A$, and $\exists x, A$ are those of $A$ except free occurrences of $x$ in $A$ which are bounded by the occurrences of $\forall, \exists$.
+\end{definition}
+
+\begin{definition}
+A formula without free variable occurrences is a sentence. 
+\end{definition}
+
+If $x_1, ...x_n$ are all variables occurring free in $A$, and $s(x_1) = s'(x_1)$ for $i = 1, 2, ...n$, then $m,s satisfies A$.
+
+\begin{proof}
+Prove by induction. The claim is true for an atomic formula, since m,s does not satisfy falsity, nor does m,s'. For $P(t_1, ...t_n)$, m,s satisfies P(t_1,...t_n) iff m,s' satisfies P(t_1,... t_n).
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Paragraph}
+In \LaTeX, paragraphs are caused
+when two line breaks are used.
+Single line breaks are ignored.
+Hence this entire block is one paragraph.
+
+Now this is a new paragraph. If you want to
+start a new line without a new paragraph, use
+two backslashes like this:
+\\
+Now the next words will be on a new line.
+\textbf{As a general rule, use this as infrequently as possible.}
+
+You can \textbf{bold} or \textit{italicize} text.
+Try to not do so repeatedly for mechanical tasks by, e.g. using theorem environments (see Section \ref{sec:theorem}).
+
+
+\section{Math}
+Inline math is created with dollar signs,
+like $e^{i \pi} = -1$ or $\half \cdot 2 = 1$.
+
+Display math is created as follows:
+\[ \sum_{k=1}^n k^3 = \left( \sum_{k=1}^n k \right)^2. \]
+This puts the math on a new line. Remember to properly add punctuation to the end of your sentences -- display math is considered part of the sentence too!
+
+Note that the use of \verb \left(  causes the parentheses to be the correct size. Without them, get something ugly like
+\[ \sum_{k=1}^n k^3 = ( \sum_{k=1}^n k )^2. \]
+
+\subsection{Using alignment}
+Try this:
+\begin{align*}
+	\prod_{k=1}^4 \left( i-x_k \right)\left( i+x_k \right) &= P(i) \cdot P(-i) \\
+	&= \left( 1-b+d+i(c-a) \right)\left( 1-b+d-i(c-a) \right) \\
+	&= (a-c)^2 + \left( b-d-1 \right)^2. 
+\end{align*}
+
+\section{Shortcuts}
+In the beginning of the document we wrote
+\begin{verbatim}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\end{verbatim}
+Now we can use these shortcuts.
+\[ \half + \half = 1 \text{ and } \cbrt{8} = 2. \]
+
+\section{Theorems and Proofs}
+\label{sec:theorem}
+% ^ Now we can refer to this
+Let us use the theorem environments we had in the beginning.
+\begin{definition}
+	Let $\mathbb R$ denote the set of real numbers.
+\end{definition}
+Notice how this makes the source code READABLE.
+
+\begin{theorem}
+	[Vasc's Inequality]
+	\label{thm:vasc}
+	For any $a$, $b$, $c$ we have the inequality
+	\[ \left( a^2+b^2+c^2 \right)^2 \ge 3\left( a^3b+b^3c+c^3a \right). \]
+\end{theorem}
+
+For the proof of Theorem \ref{thm:vasc}, we need the following lemma.
+
+\begin{lemma}
+	We have $\left( x+y+z \right)^2 \ge 3(xy+yz+zx)$ for any $x,y,z \in \mathbb R$.
+\end{lemma}
+\begin{proof}
+	This can be rewritten as
+	\[ \half\left( (x-y)^2+(y-z)^2+(z-x)^2 \right) \ge 0 \]
+	which is obvious.
+\end{proof}
+
+\begin{proof}
+	[Proof of Theorem \ref{thm:vasc}]
+	In the lemma, put $x=a^2-ab+bc$, $y=b^2-bc+ca$, $z=c^2-ca+ab$.
+\end{proof}
+
+\begin{remark}
+	In \autoref{thm:vasc}, equality holds if $a : b : c = \cos^2 \frac{2\pi}{7} : \cos^2 \frac{4\pi}{7} : \cos^2 \frac{6\pi}{7}$.
+	This unusual equality case makes the theorem difficult to prove.
+\end{remark}
+
+
+\section{Referencing}
+The above examples are the simplest cases.
+You can get much fancier: check out
+\href{http://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing}{the Wikibooks}.
+
+\section{Numbered and Bulleted Lists}
+Here is a numbered list.
+\begin{enumerate}
+	\item The environment name is ``enumerate''.
+	\item You can nest enumerates.
+		\begin{enumerate}
+			\item Subitem
+			\item Another subitem
+		\end{enumerate}
+	\item[$2 \half$.] You can also customize any particular label.
+	\item But the labels continue onwards afterwards.
+\end{enumerate}
+
+\bigskip
+
+You can also create a bulleted list.
+\begin{itemize}
+	\item The syntax is the same as ``enumerate''.
+	\item However, we use ``itemize'' instead.
+\end{itemize}
+
+
+\end{document}
